@@ -17,51 +17,61 @@ Deploy your Django web application on an AWS EC2 instance running Ubuntu. This g
 
 ## 🛠️ AWS Setup: VPC, Subnets, Route Table, Internet Gateway and EC2 Instance
 
-### 1. Create a VPC
+## 1. Create a VPC
 # Set the following:
    - **VPC Name:** `vpc-project`
    - **IPv4 CIDR block:** `10.0.0.0/24`
    - Set **Tenancy** as `Default`.
    - Click **Create VPC**.
 
-### 2. Create Subnets
-#### Public Subnet:
+  ![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204426.png)   
+
+## 2. Create Subnets
+### Public Subnet:
 # Set the following for the public subnet:
    - **VPC**: Select the VPC.
    - **Subnet name**: `pub-sub-project`
    - **CIDR block**: `10.0.0.1/24`
 # Click **Create Subnet**.
 
-#### Private Subnet:
+### Private Subnet:
 # Set the following for the private subnet:
    - **VPC**: Select the VPC.
    - **Subnet name**: `pri-sub-project`
    - **CIDR block**: `10.0.0.128/24`
 # Click **Create Subnet**.
 
-### 3. Create an Internet Gateway (IGW)
+![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204445.png)
+
+## 3. Create an Internet Gateway (IGW)
 # Set the following for the private subnet:
   - **IGW Name:** `igw-project`
 # Attach the IGW:
    - Select the VPC and click **Attach**.
 
-### 4. Create a Route Table (RT)
+![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204548.png)
+
+## 4. Create a Route Table (RT)
 # Set the following:
   - **RT Name:** `rt-project`
   - Add a route: `0.0.0.0/0` → Target: `igw-project`.
   - Associate the Route Table with the Public Subnet and Private Subnet
 
+![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204525.png)
+
 ---
 
 ## 🛠️ EC2 Instance Setup
 
-### 1. Launch EC2 Instance
+## 1. Launch EC2 Instance
 # Set the following:
    - **InstanceType:** t2.micro
    - **KeyName:** key.pair.pem
    - **VPC:** vpc-project
    - **SUBNET:** pub-sub-project
    - **SECURITY GROUP:** SSH (port 22) , HTTP (port 80) , HTTPS (port 443)
+
+![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204640.png)
 
 ## 🛠️ Setup Instructions
 
@@ -91,3 +101,14 @@ python manage.py migrate
 
 # 7. Run the Server
 python manage.py runserver 0.0.0.0:8000
+```
+![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204939.png)
+
+# Website will look like this:
+
+![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204703.png)
+
+![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204728.png)
+
+![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204749.png)
+
