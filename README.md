@@ -65,11 +65,11 @@ Deploy your Django web application on an AWS EC2 instance running Ubuntu. This g
 
 ## 1. Launch EC2 Instance
 # Set the following:
-   - **InstanceType:** t2.micro
+   - **InstanceType:** t2.medium
    - **KeyName:** key.pair.pem
    - **VPC:** vpc-project
    - **SUBNET:** pub-sub-project
-   - **SECURITY GROUP:** SSH (port 22) , HTTP (port 80) , HTTPS (port 443)
+   - **SECURITY GROUP:** SSH (port 22) , HTTP (port 80) , HTTPS (port 443) , MySQL (3306)
 
 ![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204640.png)
 
@@ -102,7 +102,14 @@ python manage.py migrate
 # 7. Run the Server
 python manage.py runserver 0.0.0.0:8000
 ```
-![image alt](https://github.com/riyaj-2002/ecommerce-django_project/blob/d719fb55cdd89c7c343e54c7b08989192237673e/Screenshot%202025-04-23%20204939.png)
+
+---
+
+## ✅ Your Application is Live!
+
+Visit:  
+**http://13.232.66.215:8000** 
+
 
 # Website will look like this:
 
