@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s(%b=+e0xv#hd_8#a(agv67@rou6a978#lp&+5qg8uw^)hyfb!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [13.232.66.215]
 
 
 # Application definition
@@ -64,7 +64,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'app.context_processors.cart_total',  # Add this line defined in context_processor.py
-                'shoppinglyx.settings.global_settings_env_var',  # Add this line
+               # 'shoppinglyx.settings.global_settings_env_var',  # Add this line
             ],
         },
     },
@@ -137,10 +137,10 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 from decouple import config
 
-# Load environment variables
+'''# Load environment variables
 PAYPAL_CLIENT_ID = config('PAYPAL_CLIENT_ID')
 
 def global_settings_env_var(request):
     return {
         'PAYPAL_CLIENT_ID': config('PAYPAL_CLIENT_ID', default='Default Value')
-    }
+    }'''
